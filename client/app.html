@@ -3,28 +3,33 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
-  <h2 align="center">Meteor 101 Survey and Feeback</h2>
+  <h2 align="center">Survey and Feeback</h2>
+  <h5 align="center">(Open me in a couple of browsers/devices to experience realtime fun)</h5>
 
-  <h3>Get to Know You Survey</h3>
-  <button id='reveal-survey'>Hide Survey</button>
+  <h3>The Survey</h3>
+  <button id='reveal-survey'>Hide the Survey</button>
   <section id="survey-container">
     <section id="survey-questions"></section>
   </section>
 
-  <h3>Realtime and Feedback/Questions</h3>
+  <h3>Realtime Feedback and Questions</h3>
   <section id="suggestions-container">
     <section id="suggestion-box"></section>
   </section>
-  {{> sAlert}}
+
   <script>
-    $('#reveal-survey').click(function (e) {
-      if ($('#survey-container').is(":hidden")) {
-          $('#survey-container').show("slow");
-          $('#reveal-survey').text('Hide Survey');
-        } else {
-          $('#survey-container').slideUp();
-          $('#reveal-survey').text('Reveal Survey');
-        }
-    });
+  var revealSurvey = function (e) {
+    if ($('#survey-container').is(":hidden")) {
+      $('#survey-container').show("slow");
+      $('#reveal-survey').text('Hide the Survey');
+    } else {
+      $('#survey-container').slideUp();
+      $('#reveal-survey').text('Take the Survey');
+    }
+  };
+
+  $('#reveal-survey').click(revealSurvey);
+
+  setTimeout(revealSurvey, 1000);
   </script>
 </body>

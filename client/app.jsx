@@ -7,8 +7,6 @@ Meteor.startup(function () {
   Session.set('deviceId', myId);
   Meteor.call('setUserId', myId);
 
-  NotifyClient.register();
-
   React.render(<SuggestionInputList />, document.getElementById('suggestion-box'));
   React.render(<SurveyList />, document.getElementById('survey-questions'));
 });
