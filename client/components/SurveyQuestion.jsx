@@ -72,7 +72,9 @@ SurveyQuestion = React.createClass({
         <li key={index} className={choiceClass} onClick={self.handleClick.bind(self, index, self.props.question._id)}>
           {choice.label}
           <svg className='graph' width='250px' height='5px'>
-            <line className='graph' x1='0' y1='3' x2={choicePercent + '%'} y2='3' style={lineStyle} />
+            <g>
+              <line className='graph' x1='1' y1='3' x2={choicePercent + '%'} y2='3' strokeLinecap='butt' style={lineStyle} />
+            </g>
           </svg>
         </li>
       );
@@ -81,6 +83,13 @@ SurveyQuestion = React.createClass({
     return (
       <ul key={this.props.question._id} className='question' data-chosen={chosen}>
         <li className='question'>{this.props.question.question}</li>
+        <li className='scale'>
+          <span>0%</span>
+          <svg width='235px' height='5px'>
+            <line x1='0' y1='3' x2={'100%'} y2='3' strokeLinecap='butt' style={{stroke: 'black', strokeWidth: '1'}} />
+          </svg>
+          <span>100% ({choiceSum} {choiceSum === 1 ? 'vote' : 'votes'})</span>
+        </li>
         {listChoices}
       </ul>
     );

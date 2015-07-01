@@ -6,29 +6,27 @@
   <h2 align="center">Survey and Feeback</h2>
   <h5 align="center">(Open this in a couple of browsers/devices to experience realtime fun)</h5>
 
-  <h3>The Survey</h3>
+  
   <button id='reveal-survey'>Hide the Survey</button>
-  <section id="survey-container">
-    <section id="survey-questions"></section>
-  </section>
+  <section class='flexbox-container'>
+    <section id="survey-container" class="show-survey">
+      <h3>The Survey</h3>
+      <section id="survey-questions"></section>
+    </section>
 
-  <h3>Realtime Feedback and Questions</h3>
-  <section id="suggestions-container">
-    <section id="suggestion-box"></section>
+    <section id="suggestions-container">
+      <h3>Realtime Questions (and Feedback)</h3>
+      <section id="suggestion-box"></section>
+    </section>
   </section>
 
   <script>
   var revealSurvey = function (e) {
-    if ($('#survey-container').is(":hidden")) {
-      $('#survey-container').show("slow");
-      $('#reveal-survey').text('Hide the Survey');
-    } else {
-      $('#survey-container').slideUp();
-      $('#reveal-survey').text('Take the Survey');
-    }
+    $('#survey-container').toggleClass('hide-survey');
+    $('#survey-container').toggleClass('show-survey');
   };
 
-  $('#reveal-survey').click(revealSurvey);
+  $('#survey-container').click(revealSurvey);
 
   setTimeout(revealSurvey, 3000);
   </script>

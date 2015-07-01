@@ -1,12 +1,24 @@
 body {
   font-family: Arial, Geneva, Helvetica, sans-serif;
 }
+ul#suggestions {
+  padding-left: 0;
+}
+
+ul#suggestions > span {
+  display: -ms-inline-flex;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 
 ul#suggestions li {
-  display: inline-block;
+/*  display: inline-block;*/
+  flex: 0 0 250px;
   vertical-align: top;
-  overflow: wrap;
-  width: 250px;
+/*  overflow: wrap;*/
+/*  width: 250px;*/
   margin: 8px;
   padding: 3px;
   border-width: thin;
@@ -25,7 +37,7 @@ ul#suggestions li {
 
 .fadein-leave {
   opacity: 1;
-  transition: opacity .5s ease-in;
+  transition: opacity 1s ease-in;
 }
 
 .fadein-leave.fadein-leave-active {
@@ -44,7 +56,7 @@ li.question {
 li.choice, li.chosen {
   padding-left: 1.3em ;
   cursor: pointer;
-  margin: 1em;
+  margin: 0em 1em 1em 1em;
 }
 
 li.choice:before {
@@ -75,19 +87,22 @@ a.delete {
 }
 
 .my-post {
-/*  font-weight: 600;*/
-}
-
-.my-post {
-/*  font-weight: 200;*/
   background-color: #AFC7B9;
 }
 
 #comment-box {
+  resize: none;
   font-size: 1em;
-  width: 90%;
+  margin: 1em;
+  padding: 1em;
   height: 3em;
-  padding-left: 1.3em;
+/*  padding-left: 1.3em;*/
+}
+
+.scale {
+  opacity: 0.5;
+  font-size: 0.6em;
+  margin-left: 1.8em;
 }
 
 .graph {
@@ -95,13 +110,47 @@ a.delete {
   margin-left: -1em;
 }
 
+.flexbox-container {
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
 #suggestions-container {
-/*  background-color: #FFFFF6 ;*/
+  flex: 1 0 260px;
+  transition: all 0.3s linear;
 }
 
 #survey-container {
-  background-color: #FFFFF6 ;
+  background-color: #FFFFF6;
+  transition: all 0.3s linear;
+  overflow: hidden;
 }
+
+.show-survey {
+  flex-basis: 70%;
+}
+
+.show-survey > h3:before {
+  content: '\f152';
+  font-family: FontAwesome;
+  font-size: 20px;
+}
+
+.hide-survey {
+  flex-basis: 20px;
+}
+
+.hide-survey > h3:before {
+  content: '\f152';
+  font-family: FontAwesome;
+  font-size: 20px;
+}
+
+.hide-survey:before{
+
+}
+
 
 @media only screen 
 and (min-device-width : 320px) 
@@ -111,6 +160,8 @@ and (max-device-width : 480px) {
     font-size: 15px;
   }
 }
+
+
 
 @media only screen 
 and (min-device-width : 768px) 
