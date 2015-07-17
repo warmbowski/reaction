@@ -6,12 +6,11 @@
   <h2 align="center">Survey and Feeback</h2>
   <h5 align="center">(Open this in a couple of browsers/devices to experience realtime fun)</h5>
 
-  
-  <button id='reveal-survey'>Hide the Survey</button>
   <section class='flexbox-container'>
     <section id="survey-container" class="show-survey">
       <h3>The Survey</h3>
       <section id="survey-questions"></section>
+      <div id="survey-toggle"></div>
     </section>
 
     <section id="suggestions-container">
@@ -26,7 +25,7 @@
     $('#survey-container').toggleClass('show-survey');
   };
 
-  $('#survey-container').click(revealSurvey);
+  $('#survey-toggle').click(revealSurvey);
 
   setTimeout(revealSurvey, 3000);
   </script>

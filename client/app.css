@@ -26,9 +26,19 @@ ul#suggestions li {
   border-radius: 5px;
   border-color: lightgray;
 }
+
+.fadein-appear {
+  opacity: 0.01;
+  transition: opacity 0.5s ease-in;
+}
+
+.fadein-appear.example-appear-active {
+  opacity: 1;
+}
+
 .fadein-enter {
   opacity: 0.01;
-  transition: opacity .3s ease-in;
+  transition: opacity 0.3s ease-in;
 }
 
 .fadein-enter.fadein-enter-active {
@@ -131,24 +141,42 @@ a.delete {
   flex-basis: 70%;
 }
 
+.show-survey > h3 {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .show-survey > h3:before {
-  content: '\f152';
+  content: '\f191 \00a0';
   font-family: FontAwesome;
   font-size: 20px;
 }
 
 .hide-survey {
   flex-basis: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.hide-survey > h3 {
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .hide-survey > h3:before {
-  content: '\f152';
+  content: '\f152 \00a0';
   font-family: FontAwesome;
   font-size: 20px;
 }
 
-.hide-survey:before{
-
+#survey-toggle {
+/*  z-index: 20;*/
+  width: 30px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 
 
