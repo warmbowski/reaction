@@ -8,14 +8,18 @@ ul#suggestions {
 ul#suggestions > span {
   display: -ms-inline-flex;
   display: -webkit-inline-flex;
+  display: -moz-inline-flex;
   display: inline-flex;
   flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   justify-content: flex-start;
+  -webkit-justify-content: flex-start;
 }
 
 ul#suggestions li {
 /*  display: inline-block;*/
   flex: 0 0 250px;
+  -webkit-flex: 0 0 250px;
   vertical-align: top;
 /*  overflow: wrap;*/
 /*  width: 250px;*/
@@ -128,6 +132,7 @@ a.delete {
 
 #suggestions-container {
   flex: 1 0 260px;
+  -webkit-flex: 1 0 260px;
   transition: all 0.3s linear;
 }
 
@@ -139,6 +144,7 @@ a.delete {
 
 .show-survey {
   flex-basis: 70%;
+  -webkit-flex-basis: 70%;
 }
 
 .show-survey > h3 {
@@ -154,6 +160,7 @@ a.delete {
 
 .hide-survey {
   flex-basis: 20px;
+  -webkit-flex-basis: 20px;
   overflow: hidden;
   white-space: nowrap;
 }
