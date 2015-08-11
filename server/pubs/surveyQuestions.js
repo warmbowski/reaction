@@ -1,5 +1,5 @@
-Meteor.publish('allSurveyQs', function() {
-  return SurveyQuestions.find({});
+Meteor.publish('allSurveyQs', function(surveyId) {
+  return SurveyQuestions.find({surveyId: surveyId});
 });
 
 SurveyQuestions.allow({

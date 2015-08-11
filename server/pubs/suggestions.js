@@ -1,5 +1,5 @@
-Meteor.publish('allSuggestions', function(count) {
-  return Suggestions.find({}, {sort: {createdAt: -1}, limit: count});
+Meteor.publish('allSuggestions', function(count, surveyId) {
+  return Suggestions.find({surveyId: surveyId}, {sort: {createdAt: -1}, limit: count});
 });
 
 Suggestions.allow({

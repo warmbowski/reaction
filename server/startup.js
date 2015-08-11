@@ -11,9 +11,14 @@ Meteor.startup(function() {
       Suggestions.insert({
         suggestion: suggestions[i],
         createdAt: new Date().valueOf(),
-        createdBy: 'testuser' + i
+        createdBy: 'testuser' + i,
+        surveyId: '99999'
       });
     }
+  } else {
+    Suggestions.find({surveyId: {$exists: false}}).forEach(function(suggestion) {
+      Suggestions.update({_id: suggestion._id}, {$set: {surveyId: '99999'}});
+    });   
   }
 
   // seed some survey questions

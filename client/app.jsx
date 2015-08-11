@@ -1,5 +1,8 @@
 Meteor.startup(function () {
-  window.React = React;
+  
+  var hash = location.hash;
+  Session.set('route', hash.substring(1));
+  console.log(Session.get('route'));
 
   if (!(localStorage.getItem('deviceId'))) {
     var newId = new Meteor.Collection.ObjectID();
@@ -11,4 +14,6 @@ Meteor.startup(function () {
 
   React.render(<SuggestionInputList />, document.getElementById('suggestion-box'));
   React.render(<SurveyList />, document.getElementById('survey-questions'));
+  
+  window.React = React;
 });

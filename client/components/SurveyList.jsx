@@ -2,7 +2,7 @@ SurveyList = React.createClass({
   mixins: [ DDPMixin, ReactiveMixin ],
 
   subscriptions: function() {
-    return Meteor.subscribe('allSurveyQs');
+    return Meteor.subscribe('allSurveyQs', Session.get('route'));
   },
 
   getReactiveState: function() {

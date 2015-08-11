@@ -56,14 +56,20 @@ SurveyQuestion = React.createClass({
     var self = this;
     var chosen = -1;
     var choiceSum = 0;
+
     for (i = 0; i < self.props.question.choices.length; i++) {
       choiceSum += self.props.question.choices[i].value;
     }
 
     var listChoices = self.props.question.choices.map(function(choice, index) {
       var choiceClass = 'choice';
-      var choicePercent = (choice.value / choiceSum * 100);
       var lineStyle = {stroke: choice.color, strokeWidth: '5'};
+      var choicePercent = 0;
+
+      if(choiceSum !== 0) {
+        choicePercent = (choice.value / choiceSum * 100);
+      }
+
       if (choice.voters.indexOf(Session.get('deviceId')) >= 0) {
         choiceClass = 'chosen';
         chosen = index;
