@@ -18,9 +18,12 @@ Meteor.startup(function() {
 
   // seed some survey questions
   //SurveyQuestions.remove({});
-  if (SurveyQuestions.find().count() === 0) {
+  surveyQs = SurveyQuestions.find();
+  if (surveyQs.count() === 0) {
     var sampleQs = [
       {
+        surveyId: '99999',
+        surveyorId: '77777',
         question: 'What\'s your coding experience?',
         choices: [
           { label: 'Been doing this for years. (>5 yrs)', value: 0, color: 'rgb(114, 147, 203)', voters: []},
@@ -30,6 +33,8 @@ Meteor.startup(function() {
         ]
       },
       {
+        surveyId: '99999',
+        surveyorId: '77777',
         question: 'What web framework/platform do you use most these days?',
         choices: [
           { label: 'Meteor', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
@@ -43,6 +48,8 @@ Meteor.startup(function() {
         ]
       },
       {
+        surveyId: '99999',
+        surveyorId: '77777',
         question: 'What web framework/platform would you like to use more?',
         choices: [
           { label: 'Meteor', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
@@ -56,6 +63,8 @@ Meteor.startup(function() {
         ]
       },
       {
+        surveyId: '99999',
+        surveyorId: '77777',
         question: 'Which of these areas of dev do you think needs the most improvement?',
         choices: [
           { label: 'Deployment', value: 0, color: 'rgb(114, 147, 203)', voters: [] },
@@ -70,7 +79,15 @@ Meteor.startup(function() {
     _.each(sampleQs, function(question) {
       SurveyQuestions.insert(question);
     });
+
+  } else {
+    _.each(surveyQs.fetch(), function(question) {
+      if(!question.surveyId) {
+        SurveyQuestions.update({_id: question._id}, {$set: {surveyId: '99999', surveyorId: '77777'}});
+      }
+    });
   }
+
   console.log('Suggestion Count: ' + Suggestions.find().count());
   console.log('Questions: ' + SurveyQuestions.find().count());
 });

@@ -4,29 +4,33 @@
 </head>
 <body>
   <h2 align="center">Survey and Feeback</h2>
-  <h5 align="center">(Open this in a couple of browsers/devices to experience realtime fun)</h5>
 
   <section class='flexbox-container'>
-    <section id="survey-container" class="show-survey">
-      <h3>The Survey</h3>
-      <section id="survey-questions"></section>
-      <div id="survey-toggle"></div>
+    <section id="suggestions-container" class="show-suggestions">
+      <h3>Realtime Questions <br>(and Feedback)</h3>
+      <section id="suggestion-box"></section>
     </section>
 
-    <section id="suggestions-container">
-      <h3>Realtime Questions (and Feedback)</h3>
-      <section id="suggestion-box"></section>
+    <section id="survey-container" class="no-wrap">
+      <div id="survey-toggle" class="button-hide">
+        <h3>The Survey</h3>
+      </div>
+      <section id="survey-questions"></section>
     </section>
   </section>
 
   <script>
-  var revealSurvey = function (e) {
-    $('#survey-container').toggleClass('hide-survey');
-    $('#survey-container').toggleClass('show-survey');
-  };
+  
+  var hideSuggestions = function(e) {
+    $('#survey-container').toggleClass('no-wrap')
+    $('#suggestions-container').toggleClass('show-suggestions');
+    $('#suggestions-container').toggleClass('hide-suggestions');
+    $('#survey-toggle').toggleClass('button-show');
+    $('#survey-toggle').toggleClass('button-hide');
+  }
 
-  $('#survey-toggle').click(revealSurvey);
+  $('#survey-toggle').click(hideSuggestions);
 
-  setTimeout(revealSurvey, 3000);
+//  setTimeout(hideSuggestions, 3000);
   </script>
 </body>

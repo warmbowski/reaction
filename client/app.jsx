@@ -1,4 +1,6 @@
 Meteor.startup(function () {
+  window.React = React;
+
   if (!(localStorage.getItem('deviceId'))) {
     var newId = new Meteor.Collection.ObjectID();
     localStorage.setItem('deviceId', newId._str);
