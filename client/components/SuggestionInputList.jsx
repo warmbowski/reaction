@@ -18,7 +18,8 @@ SuggestionInputList = React.createClass({
           suggestion: this.state.userInput,
           createdAt: new Date().valueOf(),
           createdBy: localStorage.getItem('deviceId'),
-          surveyId: Session.get('route')
+          surveyId: Session.get('route'),
+          markedRead: ''
         });
         this.setState({userInput: ''});
       }

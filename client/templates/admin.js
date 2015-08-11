@@ -1,8 +1,13 @@
 Template.admin.helpers({
   showForAdmin: function() {
-    var testQuestion = SurveyQuestions.findOne({});
-    if(testQuestion) {
-      return (Session.get('deviceId') === testQuestion.surveyorId || testQuestion.surveyorId === '77777');
+    var testForAdmin = SurveyQuestions.findOne({});
+    if(testForAdmin) {
+      var isAdmin = (Session.get('deviceId') === testForAdmin.surveyorId || testForAdmin.surveyorId === '777777');
+      Session.set('isAdmin', isAdmin);
+    }
+
+    if(Session.get('isAdmin')) {
+      return Session.get('isAdmin');
     }
   }
 });

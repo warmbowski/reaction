@@ -9,5 +9,10 @@ Suggestions.allow({
 
   remove: function(userId, doc) {
     return (userId === doc.createdBy);
+  },
+
+  update: function(userId, doc, field, mod) {
+    console.log((field.length === 1 && field[0] === 'markedRead'));
+    return (field.length === 1 && field[0] === 'markedRead');
   }
 });

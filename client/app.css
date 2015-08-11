@@ -109,8 +109,24 @@ a.delete {
   visibility: hidden;
 }
 
+a.mark-read {
+  float: right;
+  visibility: hidden;
+}
+
+li.admin-mode > a.mark-read {
+  visibility: visible;
+}
+
+.is-read {
+  opacity: 0.3;
+}
 .my-post {
   background-color: #AFC7B9;
+}
+
+.my-post.admin-mode {
+  background-color: #D49B9B;
 }
 
 #comment-box {

@@ -17,7 +17,7 @@ Meteor.startup(function() {
     }
   } else {
     Suggestions.find({surveyId: {$exists: false}}).forEach(function(suggestion) {
-      Suggestions.update({_id: suggestion._id}, {$set: {surveyId: '99999'}});
+      Suggestions.update({_id: suggestion._id}, {$set: {surveyId: '99999', markedRead: ''}});
     });   
   }
 

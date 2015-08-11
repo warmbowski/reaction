@@ -13,23 +13,31 @@ SuggestionsList = React.createClass({
     };
   },
   
-  handleClick: function(id) {
+  handleDeleteClick: function(id) {
     return Suggestions.remove({_id: id});
+  },
+
+  handleReadClick: function(id) {
+    if(Session.get('isAdmin')) {
+      return Suggestions.update({_id: id}, {$set: {markedRead: 'is-read'}});
+    }
   },
 
   render: function() {
     var self = this;
     var listItems = self.state.suggestList.map(function(item) {
-      var isMine = '';
-      if (item.createdBy === Session.get('deviceId')) {
-        isMine = 'my-post';
-      }
+      var adminMode = Session.get('isAdmin') ? 'admin-mode' : '';
+      var isMine = item.createdBy === Session.get('deviceId') ? 'my-post' : 'your-post';
+
       return (
-        <li key={item._id} className={isMine ? isMine : 'your-post'}>
-            <a className="delete" onClick={self.handleClick.bind(self, item._id)}>
-              <i className="fa fa-times"></i>
-            </a>
+        <li key={item._id} className={isMine + ' ' + adminMode + ' ' + item.markedRead}>
+          <a className="delete" onClick={self.handleDeleteClick.bind(self, item._id)}>
+            <i className="fa fa-times"></i>
+          </a>
           <i className="fa fa-paper-plane-o"> </i> {item.suggestion}
+            <a className="mark-read" onClick={self.handleReadClick.bind(self, item._id)}>
+              <i className="fa fa-hand-spock-o"></i>
+            </a>
         </li>
       );
     });

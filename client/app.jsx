@@ -11,6 +11,7 @@ Meteor.startup(function () {
   var myId = localStorage.getItem('deviceId');
   Session.set('deviceId', myId);
   Meteor.call('setUserId', myId);
+  Session.set('adminId', false);
 
   React.render(<SuggestionInputList />, document.getElementById('suggestion-box'));
   React.render(<SurveyList />, document.getElementById('survey-questions'));
