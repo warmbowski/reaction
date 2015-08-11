@@ -2,7 +2,7 @@ Template.admin.helpers({
   showForAdmin: function() {
     var testForAdmin = SurveyQuestions.findOne({});
     if(testForAdmin) {
-      var isAdmin = (Session.get('deviceId') === testForAdmin.surveyorId || testForAdmin.surveyorId === '777777');
+      var isAdmin = (Session.get('deviceId') === testForAdmin.surveyorId || testForAdmin.surveyorId === '77777');
       Session.set('isAdmin', isAdmin);
     }
 
