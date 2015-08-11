@@ -1,5 +1,12 @@
 <template name='admin'>
   {{#if showForAdmin}}
     <button id='duplicate'><i class='fa fa-copy'></i></button>
+      {{#if _.isEqual surveyShowState 'show'}}
+        <button id='survey-on' class='survey-on-off'><i class='fa fa-toggle-on'></i></button>
+      {{/if}}
+      {{#if _.isEqual surveyShowState 'hide'}}
+        <button id='survey-off' class='survey-on-off'><i class='fa fa-toggle-off'></i></button>
+      {{/if}}
   {{/if}}
+  <span id="{{surveyShowState}}"></span>
 </template>

@@ -15,6 +15,6 @@ Meteor.startup(function () {
 
   React.render(<SuggestionInputList />, document.getElementById('suggestion-box'));
   React.render(<SurveyList />, document.getElementById('survey-questions'));
-  
+
   window.React = React;
 });

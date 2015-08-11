@@ -103,6 +103,7 @@ li.chosen:before {
 
 ul#suggestions li.my-post:hover > a.delete {
   visibility: visible;
+  cursor: pointer;
 }
 
 a.delete {
@@ -111,6 +112,7 @@ a.delete {
 
 a.mark-read {
   float: right;
+  cursor: pointer;
   visibility: hidden;
 }
 
@@ -193,6 +195,15 @@ li.admin-mode > a.mark-read {
   overflow: visible;
 }
 
+#survey-container.hide-survey {
+  visibility: hidden;
+}
+
+#suggestions-container.hide-survey {
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+}
+
 .button-hide > h3:before {
   content: '\f191 \00a0';
   font-family: FontAwesome;
@@ -203,6 +214,10 @@ li.admin-mode > a.mark-read {
   content: '\f152 \00a0';
   font-family: FontAwesome;
   font-size: 20px;
+}
+
+#survey-on-off {
+  float: right;
 }
 
 #survey-toggle {
@@ -225,6 +240,10 @@ and (max-device-width : 480px) {
 /* CSS styles for smartphones here */
   body {
     font-size: 15px;
+  }
+
+  a.delete {
+    visibility: visible;
   }
 
   .no-wrap {
