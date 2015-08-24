@@ -1,11 +1,11 @@
 <template name='admin'>
   {{#if showForAdmin}}
-    <button id='duplicate'><i class='fa fa-copy'></i></button>
+    <button id='duplicate' title='create a new survey based on this one'><i class='fa fa-copy'></i></button>
       {{#if _.isEqual surveyShowState 'show'}}
-        <button id='survey-on' class='survey-on-off'><i class='fa fa-toggle-on'></i></button>
+        <button id='survey-on' class='survey-on-off' title='toggle survey off'><i class='fa fa-toggle-on'></i></button>
       {{/if}}
       {{#if _.isEqual surveyShowState 'hide'}}
-        <button id='survey-off' class='survey-on-off'><i class='fa fa-toggle-off'></i></button>
+        <button id='survey-off' class='survey-on-off'><i class='fa fa-toggle-off' title='toggle survey on'></i></button>
       {{/if}}
   {{/if}}
   <span id="{{surveyShowState}}"></span>
