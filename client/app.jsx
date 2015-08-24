@@ -1,6 +1,7 @@
 Meteor.startup(function () {
   
   var hash = location.hash;
+  if(hash === '') hash = '#99999'
   Session.set('route', hash.substring(1));
   console.log(Session.get('route'));
 
