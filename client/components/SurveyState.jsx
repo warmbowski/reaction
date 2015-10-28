@@ -1,11 +1,8 @@
 SurveyState = React.createClass({
-  mixins: [ DDPMixin, ReactiveMixin ],
+  mixins: [ReactMeteorData],
 
-  subscriptions: function() {
-    return Meteor.subscribe('survey', Session.get('route'));
-  },
-
-  getReactiveState: function() {
+  getMeteorData: function() {
+    Meteor.subscribe('survey', Session.get('route'));
     return {
       survey: Surveys.findOne({})
     };
@@ -16,8 +13,8 @@ SurveyState = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.survey);
-    if (this.state.survey.surveyState === 'hide') {
+    console.log(this.data.survey);
+    if (this.data.survey.surveyState === 'hide') {
       $('#survey-container').addClass('hide-survey');
     } else {
       $('#survey-container').removeClass('hide-survey');
@@ -25,7 +22,7 @@ SurveyState = React.createClass({
 
     return (
       <section>
-        {this.state.survey.surveyState}
+        {this.data.survey.surveyState}
       </section>
     );
   }

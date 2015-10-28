@@ -1,13 +1,10 @@
 SuggestionsTransitionGroup = React.addons.CSSTransitionGroup;
 
 SuggestionsList = React.createClass({
-  mixins: [ DDPMixin, ReactiveMixin ],
+  mixins: [ReactMeteorData],
 
-  subscriptions: function() {
-    return Meteor.subscribe('allSuggestions', 50, Session.get('route'));
-  },
-
-  getReactiveState: function() {
+  getMeteorData: function() {
+    Meteor.subscribe('allSuggestions', 50, Session.get('route'));
     return {
       suggestList: Suggestions.find({}, {sort: {createdAt: -1}}).fetch()
     };
@@ -25,7 +22,7 @@ SuggestionsList = React.createClass({
 
   render: function() {
     var self = this;
-    var listItems = self.state.suggestList.map(function(item) {
+    var listItems = self.data.suggestList.map(function(item) {
       var adminMode = Session.get('isAdmin') ? 'admin-mode' : '';
       var isMine = item.createdBy === Session.get('deviceId') ? 'my-post' : 'your-post';
 
