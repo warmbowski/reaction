@@ -1,0 +1,35 @@
+{
+  "name": "reaction",
+  "version": "1.0.0",
+  "description": "survey app",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-addons-create-fragment": "^15.3.1",
+    "react-addons-css-transition-group": "^15.3.1",
+    "react-addons-linked-state-mixin": "^15.3.1",
+    "react-addons-perf": "^15.3.1",
+    "react-addons-pure-render-mixin": "^15.3.1",
+    "react-addons-test-utils": "^15.3.1",
+    "react-addons-transition-group": "^15.3.1",
+    "react-addons-update": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warmbowski/reaction.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/warmbowski/reaction/issues"
+  },
+  "homepage": "https://github.com/warmbowski/reaction#readme"
+}

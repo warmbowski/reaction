@@ -2,7 +2,7 @@ SuggestionInputList = React.createClass({
   getDefaultProps: function() {
     return {pagingCount: 10};
   },
-  
+
   getInitialState: function() {
     return {userInput: '', pagingCount: 50};
   },

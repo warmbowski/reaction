@@ -9,7 +9,7 @@ SuggestionsList = React.createClass({
       suggestList: Suggestions.find({}, {sort: {createdAt: -1}}).fetch()
     };
   },
-  
+
   handleDeleteClick: function(id) {
     return Suggestions.remove({_id: id});
   },
@@ -41,7 +41,7 @@ SuggestionsList = React.createClass({
 
     return (
       <ul id="suggestions">
-        <SuggestionsTransitionGroup transitionName='fadein'>
+        <SuggestionsTransitionGroup transitionName='fadein' transitionEnterTimeout={300} transitionLeaveTimeout={300}>
           {listItems}
         </SuggestionsTransitionGroup>
       </ul>
